@@ -8,5 +8,9 @@
     "body-parser": "~1.8.0",
     "method-override": "~2.2.0",
     "jade": "*"
+  },
+  "devDependencies" : {
+    "should" : "~4.0.4",
+    "supertest" : "~0.13.0"
   }
 }
