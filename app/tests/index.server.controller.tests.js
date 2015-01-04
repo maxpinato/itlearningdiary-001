@@ -1,37 +1,22 @@
 var app = require('../../server'),
   request = require('supertest'),
-  should = require('should');
-  index = require('../controllers/index.server.controller');
-
+  should = require('should'),
+  ctrlIndex = require('../controllers/index.server.controller');
+  ctrlTesti = require('../controllers/testi.server.controller');
+  
 myNext = function(){
   console.log('myNext OK!');
 }
 
 describe('Index Controller Unit Test', function(){
 
-  describe('Test del metodo getTesto()',function(){
-
-    it('Dovrebbe restituire un array di 3 testi',function(done){
-      var testi = index.getTesto();
-      testi.should.be.with.lengthOf(3);
-      done();
-    });
- 
-  });
-
   describe('Test del metodo setMyText()',function(){
-
-    it('Dovrebbe restituire un array di 3 testi',function(done){
-      var testi = index.getTesto();
-      testi.should.be.with.lengthOf(3);
-      done();
-    });
-
+  
     it('Lancio il metodo e il getTesto dovrebbe fornire elemento[1] = "PIPPO"',function(done){
-      var testi = index.getTesto();
+      var testi = ctrlTesti.getTesti();
       testi.should.be.with.lengthOf(3);
-      index.setMyText(null,null,myNext,'PIPPO');
-      testi = index.getTesto();
+      ctrlIndex.setMyText(null,null,myNext,'PIPPO');
+      testi = ctrlTesti.getTesti();
       testi[1].should.be.eql('PIPPO');
       done();
     });
